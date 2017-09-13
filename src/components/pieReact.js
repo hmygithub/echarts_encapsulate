@@ -11,7 +11,7 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
 
 //console.log(echarts);
-export class PieReact extends React.Component {
+export default class PieReact extends React.Component {
   constructor(props) {
     super(props)
     this.setPieOption = this.setPieOption.bind(this)//绑定setPieOption到当前的实例。
@@ -73,7 +73,7 @@ export class PieReact extends React.Component {
   render() {
     return (
       <div className="pie-react">
-        <div ref="pieReact" style={{width: "100%", height: '200px'}}></div>
+        <div ref="pieChart" style={{width: "100%", height: '200px'}}></div>
       </div>
     )
   }
