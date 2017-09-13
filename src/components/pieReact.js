@@ -15,9 +15,11 @@ export class PieReact extends React.Component {
   constructor(props) {
     super(props)
     this.setPieOption = this.setPieOption.bind(this)//绑定setPieOption到当前的实例。
+    this.initPie = this.initPie.bind(this)
   }
-  //在react中，我们需要等到虚拟dom渲染完成了才能通过refs去获取节点,所以在组件componentDidMount的时候初始化echarts
-  componentDidMount() {
+
+  //componentDidMount和componentDidUpdate执行的方法是一样的，那么我们可以提取出来作为一个单独的方法
+  initPie() {
     const { data } = this.props //外部传入的data数据
     let myChart = echarts.init(this.refs.pieChart) //初始化echarts
 
@@ -26,13 +28,13 @@ export class PieReact extends React.Component {
     //设置options
     myChart.setOption(options)
   }
+  //在react中，我们需要等到虚拟dom渲染完成了才能通过refs去获取节点,所以在组件componentDidMount的时候初始化echarts
+  componentDidMount() {
+    this.initPie()
+  }
 
   componentDidUpdate() {
-    const { data } = this.props;
-    let myChart = echarts.init(this.refs.pieChart)
-
-    let options = this.setPieOption(data)
-    myChart.setOption(options)
+    this.initPie()
   }
 
   //一个基本的echarts图表配置函数
