@@ -11,6 +11,10 @@ import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/legend'
 
 export class PieReact extends React.Component {
+    constructor(props) {
+      super(props)
+      this.setPieOption = this.setPieOption.bind(this)//绑定setPieOption到当前的实例。
+    }
     //在react中，我们需要等到虚拟dom渲染完成了才能通过refs去获取节点,所以在组件componentDidMount的时候初始化echarts
     componentDidMount(){
       const { data } = this.props //外部传入的data数据
