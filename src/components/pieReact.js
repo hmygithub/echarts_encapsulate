@@ -7,6 +7,8 @@ import React, { Component } from 'react'
 var echarts = require('echarts/lib/echarts')
 require('echarts/lib/chart/pie')
 require('echarts/lib/component/title')
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/legend'
 
 export class PieReact extends React.Component {
     render(){
