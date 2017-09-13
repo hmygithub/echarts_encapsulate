@@ -3,7 +3,12 @@
  */
 import React, { Component } from 'react'
 
-export default class PieReact extends React.Component {
+//导入echarts
+var echarts = require('echarts/lib/echarts')
+require('echarts/lib/chart/pie')
+require('echarts/lib/component/title')
+
+export class PieReact extends React.Component {
     render(){
         return(
           <div className="pie-react">
